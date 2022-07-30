@@ -6,7 +6,7 @@ const FILES_TO_CACHE = [
     '/',
     './index.html',
     './manifest.json',
-    './css/style.css',
+    './css/styles.css',
     './icons/icon-72x72.png',
     './icons/icon-96x96.png',
     './icons/icon-128x128.png',
@@ -56,10 +56,10 @@ self.addEventListener("activate", function (evt) {
 // Information from cache
 self.addEventListener("fetch", function (evt) {
     console.log("fetch request: " + evt.request.url)
-    evt.responsWith(
+    evt.respondWith(
         caches.match(evt.request).then(function (request) {
             if (request) {
-                console.log("respinding with cache : " + evt.request.url)
+                console.log("responding with cache : " + evt.request.url)
                 return request
             } else {
                 console.log("file is not cached, fetching : " + evt.request.url)
